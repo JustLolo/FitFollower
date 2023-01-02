@@ -1,0 +1,32 @@
+services:
+  frontend-web-dev:
+    build:
+      context: ./frontend-web
+      dockerfile: Dockerfile.dev
+
+    # user: 1000:1000
+    volumes:
+      - ./frontend-web:/home/node/app
+      - frontend-web-dev-node-modules:/home/node/app/node_modules
+    ports:
+      - "80:5173"
+
+    # depends_on:
+      # - backend-api-dev
+# version: "2"
+# services:
+#   node:
+#     image: "node:8"
+#     user: "node"
+#     working_dir: /home/node/app
+#     environment:
+#       - NODE_ENV=production
+#     volumes:
+#       - ./:/home/node/app
+#     expose:
+#       - "8081"
+#     command: "npm start"
+
+
+volumes:
+  frontend-web-dev-node-modules:

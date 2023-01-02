@@ -1,0 +1,28 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build images",
+      "type": "shell",
+      "command": "docker compose build"
+    },
+    {
+      "label": "StartServices",
+      "type": "shell",
+      "command": "docker compose up"
+    },
+    {
+      "label": "StopServices",
+      "type": "shell",
+      "command": "docker compose down"
+    },
+    {
+      "label": "Clean Everything",
+      // delete all containers, volumes, networks, and images
+      "type": "shell",
+      "command": "docker-compose down -v --rmi all && sudo rm -R ./frontend-web/node_modules"
+    }
+  ]
+}
